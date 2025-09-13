@@ -6,7 +6,7 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/hello", func(c *gin.Context) {
-		c.String(200, "Hello, World!")
+		c.String(200, "Hello, World! (go)")
 	})
 
 	r.Run(":3000")
