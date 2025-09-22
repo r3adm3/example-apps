@@ -13,6 +13,8 @@ A lightweight web server built with Go and the Gin framework, demonstrating mode
 1. **Install dependencies**
    ```bash
    go mod download
+   go mod download github.com/gin-gonic/gin (optional, if download doesn't work)
+   go mod download github/com/gin-gonic/gin@1.10.0 (optional, if download doesn't work)
    ```
 
 2. **Run the application**
