@@ -11,6 +11,8 @@ A collection of simple "Hello World" web applications demonstrating basic setup 
 | [Java](./example-java/) | Spring Boot | 8080 | RESTful API with Spring Boot 3.2 |
 | [Node.js](./example-node/) | Express | 3000 | Basic HTTP server with Express |
 | [Python](./example-python/) | Flask | 8000 | Simple web application with Flask |
+| [Rust](./example-rust/) | Axum | 3000 | Simple web application with Axum |
+| [Quarkus](./example-quarkus/) | Flask | 8080 | Restful API with Quarkus |
 
 ## 🏃‍♂️ Quick Start
 
@@ -39,6 +41,9 @@ example-apps/
 ├── example-java/            # Java Spring Boot example
 ├── example-node/            # Node.js Express example
 └── example-python/          # Python Flask example
+└── example-rust/            # Rust Axum example
+└── example-quarkus/          # Quarkus example
+
 ```
 
 ## 🔧 Common Requirements
