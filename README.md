@@ -35,14 +35,14 @@ docker run -p [port]:[port] example-[language]
 
 ```
 example-apps/
-├── README.md                 # This file
+├── README.md                # This file
 ├── example-dotnet/          # .NET Core example
 ├── example-go/              # Go with Gin example  
 ├── example-java/            # Java Spring Boot example
 ├── example-node/            # Node.js Express example
 └── example-python/          # Python Flask example
 └── example-rust/            # Rust Axum example
-└── example-quarkus/          # Quarkus example
+└── example-quarkus/         # Quarkus example
 
 ```
 
