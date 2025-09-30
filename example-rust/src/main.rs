@@ -23,5 +23,5 @@ async fn main() {
 
 // Handler function that returns "Hello, World!"
 async fn hello_world() -> &'static str {
-    "Hello, World!"
+    "Hello, World! (rust)"
 }

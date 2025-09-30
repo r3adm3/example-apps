@@ -39,27 +39,12 @@ This application creates a basic HTTP web server using the Axum web framework. H
 
 ## How to Run
 
-1. **Create a new Rust project:**
-   ```bash
-   cargo new hello-world-web
-   cd hello-world-web
-   ```
-
-2. **Add dependencies to `Cargo.toml`:**
-   ```toml
-   [dependencies]
-   axum = "0.7"
-   tokio = { version = "1", features = ["full"] }
-   ```
-
-3. **Replace `src/main.rs`** with the provided code
-
-4. **Run the application:**
+1. **Run the application:**
    ```bash
    cargo run
    ```
 
-5. **Test it out:**
+2. **Test it out:**
    - Open your web browser and go to `http://localhost:3000`
    - You should see "Hello, World!" displayed
    - Or use curl from another terminal:
@@ -67,7 +52,7 @@ This application creates a basic HTTP web server using the Axum web framework. H
      curl http://localhost:3000
      ```
 
-6. **Stop the server:**
+3. **Stop the server:**
    - Press `Ctrl+C` in the terminal where the server is running
 
 ## Troubleshooting
@@ -93,18 +78,18 @@ If you prefer to run the application in a container, you can use Docker:
 
 From the project root directory (where the Dockerfile is located):
 ```bash
-docker build -t rust-hello-world .
+docker build -t example-rust .
 ```
 
 This will:
 - Use a multi-stage build to compile your Rust application
 - Create a minimal runtime image with just the compiled binary
-- Tag the image as `rust-hello-world`
+- Tag the image as `example-rust`
 
 ### Run the Container
 
 ```bash
-docker run -p 3000:3000 rust-hello-world
+docker run -p 3000:3000 example-rust
 ```
 
 The `-p 3000:3000` flag maps port 3000 from the container to port 3000 on your host machine.
@@ -113,14 +98,14 @@ The `-p 3000:3000` flag maps port 3000 from the container to port 3000 on your h
 
 To run the container in the background:
 ```bash
-docker run -d -p 3000:3000 --name hello-web rust-hello-world
+docker run -d -p 3000:3000 --name hello-rust example-rust
 ```
 
 ### Stop the Container
 
 ```bash
-docker stop hello-web
-docker rm hello-web
+docker stop hello-rust
+docker rm hello-rust
 ```
 
 ### Optional: Create a .dockerignore File

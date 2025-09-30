@@ -1,5 +1,5 @@
 # Build stage
-FROM rust:1.75 as builder
+FROM rust:latest AS builder
 
 WORKDIR /app
 
@@ -23,10 +23,10 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Copy the binary from builder
-COPY --from=builder /app/target/release/hello-world-web .
+COPY --from=builder /app/target/release/example-rust .
 
 # Expose the port the app runs on
 EXPOSE 3000
 
 # Run the binary
-CMD ["./hello-world-web"]
+CMD ["./example-rust"]
