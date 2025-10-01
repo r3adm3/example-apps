@@ -1,0 +1,252 @@
+pipeline:
+  name: Build and Push Apps
+  identifier: Build_and_Push_Apps
+  projectIdentifier: Build_Example_Apps
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.MyGitHub
+        repoName: example-apps
+        build: <+input>
+        sparseCheckout: []
+  stages:
+    - stage:
+        name: Build and Push Dotnet
+        identifier: Build_and_Push_Dotnet
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.Home_Cluster
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push dotnet
+                  identifier: Build_and_Push_dotnet
+                  spec:
+                    connectorRef: account.Dockerio
+                    repo: docker.io/r3adm3/example-dotnet
+                    tags:
+                      - latest
+                      - <+pipeline.sequenceId>
+                    dockerfile: example-dotnet/Dockerfile
+                    context: example-dotnet/
+        when:
+          pipelineStatus: All
+    - stage:
+        name: Build and Push Go
+        identifier: Build_and_Push_Go
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.Home_Cluster
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push dotnet
+                  identifier: Build_and_Push_dotnet
+                  spec:
+                    connectorRef: account.Dockerio
+                    repo: docker.io/r3adm3/example-go
+                    tags:
+                      - latest
+                      - <+pipeline.sequenceId>
+                    dockerfile: example-go/Dockerfile
+                    context: example-go/
+        when:
+          pipelineStatus: All
+    - stage:
+        name: Build and Push Java
+        identifier: Build_and_Push_Java
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.Home_Cluster
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push Java
+                  identifier: Build_and_Push_Java
+                  spec:
+                    connectorRef: account.Dockerio
+                    repo: docker.io/r3adm3/example-java
+                    tags:
+                      - latest
+                      - <+pipeline.sequenceId>
+                    dockerfile: example-java/Dockerfile
+                    context: example-java/
+        when:
+          pipelineStatus: All
+    - stage:
+        name: Build and Push node
+        identifier: Build_and_Push_node
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.Home_Cluster
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push Node
+                  identifier: Build_and_Push_Node
+                  spec:
+                    connectorRef: account.Dockerio
+                    repo: docker.io/r3adm3/example-node
+                    tags:
+                      - latest
+                      - <+pipeline.sequenceId>
+                    dockerfile: example-node/Dockerfile
+                    context: example-node/
+        when:
+          pipelineStatus: All
+    - stage:
+        name: Build and Push Python
+        identifier: Build_and_Push_Python
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.Home_Cluster
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push Python
+                  identifier: Build_and_Push_Python
+                  spec:
+                    connectorRef: account.Dockerio
+                    repo: docker.io/r3adm3/example-python
+                    tags:
+                      - latest
+                      - <+pipeline.sequenceId>
+                    dockerfile: example-python/Dockerfile
+                    context: example-python/
+        when:
+          pipelineStatus: All
+    - stage:
+        name: Build and Push Quarkus
+        identifier: Build_and_Push_Quarkus
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.Home_Cluster
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push Quarkus
+                  identifier: Build_and_Push_Quarkus
+                  spec:
+                    connectorRef: account.Dockerio
+                    repo: docker.io/r3adm3/example-quarkus
+                    tags:
+                      - latest
+                      - <+pipeline.sequenceId>
+                    dockerfile: example-quarkus/Dockerfile
+                    context: example-quarkus/
+        when:
+          pipelineStatus: All
+    - stage:
+        name: Build and Push Rust
+        identifier: Build_and_Push_Rust
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: false
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.Home_Cluster
+              namespace: harness-delegate-ng
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and Push Java
+                  identifier: Build_and_Push_Rust
+                  spec:
+                    connectorRef: account.Dockerio
+                    repo: docker.io/r3adm3/example-rust
+                    tags:
+                      - latest
+                      - <+pipeline.sequenceId>
+                    dockerfile: example-rust/Dockerfile
+                    context: example-rust/
+        when:
+          pipelineStatus: All
