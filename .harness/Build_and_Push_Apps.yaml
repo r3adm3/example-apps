@@ -68,7 +68,7 @@ pipeline:
             steps:
               - step:
                   type: BuildAndPushDockerRegistry
-                  name: Build and Push dotnet
+                  name: Build and Push Go
                   identifier: Build_and_Push_dotnet
                   spec:
                     connectorRef: account.Dockerio
