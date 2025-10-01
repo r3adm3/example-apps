@@ -44,6 +44,10 @@ pipeline:
                       - <+pipeline.sequenceId>
                     dockerfile: example-dotnet/Dockerfile
                     context: example-dotnet/
+                    resources:
+                      limits:
+                        memory: 2000Mi
+                        cpu: 1600m
         when:
           pipelineStatus: All
     - stage:
@@ -78,6 +82,10 @@ pipeline:
                       - <+pipeline.sequenceId>
                     dockerfile: example-go/Dockerfile
                     context: example-go/
+                    resources:
+                      limits:
+                        memory: 2000Mi
+                        cpu: 1600m
         when:
           pipelineStatus: All
     - stage:
@@ -112,6 +120,10 @@ pipeline:
                       - <+pipeline.sequenceId>
                     dockerfile: example-java/Dockerfile
                     context: example-java/
+                    resources:
+                      limits:
+                        memory: 2000Mi
+                        cpu: 1600m
         when:
           pipelineStatus: All
     - stage:
@@ -146,6 +158,10 @@ pipeline:
                       - <+pipeline.sequenceId>
                     dockerfile: example-node/Dockerfile
                     context: example-node/
+                    resources:
+                      limits:
+                        memory: 2000Mi
+                        cpu: 1600m
         when:
           pipelineStatus: All
     - stage:
@@ -180,6 +196,10 @@ pipeline:
                       - <+pipeline.sequenceId>
                     dockerfile: example-python/Dockerfile
                     context: example-python/
+                    resources:
+                      limits:
+                        memory: 2000Mi
+                        cpu: 1600m
         when:
           pipelineStatus: All
     - stage:
@@ -214,6 +234,10 @@ pipeline:
                       - <+pipeline.sequenceId>
                     dockerfile: example-quarkus/Dockerfile
                     context: example-quarkus/
+                    resources:
+                      limits:
+                        memory: 2000Mi
+                        cpu: 1600m
         when:
           pipelineStatus: All
     - stage:
@@ -248,5 +272,9 @@ pipeline:
                       - <+pipeline.sequenceId>
                     dockerfile: example-rust/Dockerfile
                     context: example-rust/
+                    resources:
+                      limits:
+                        memory: 2000Mi
+                        cpu: 1600m
         when:
           pipelineStatus: All
