@@ -1,8 +1,7 @@
 {
+  "comment": "delete dependencies section if you ant it to go faster",
   "dependencies": {
-    //<-- it's safe to remove this dependency
     "express": "^4.5.1"
-    //by deleting it in between the two comments-->
   },
   "name": "example-node",
   "version": "1.0.0",
