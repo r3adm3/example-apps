@@ -1,5 +1,5 @@
 {
-  "comment": "delete dependencies section if you ant it to go faster",
+  "comment": "delete dependencies section if you want it to go faster",
   "dependencies": {
     "express": "^4.5.1"
   },
